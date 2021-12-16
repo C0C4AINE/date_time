@@ -1,0 +1,33 @@
+import datetime
+import time
+
+##################################################################################
+semana = ('Segunda-Feira',          # Aqui foi criado uma Tupla com dias da semana
+          'Terça-Feira',
+          'Quarta-Feira',
+          'Quinta-Feira',
+          'Sexta-Feira',
+          'Sabado',
+          'Domingo')
+
+##################################################################################
+
+while True:         # Looping procurando o horario
+    agora = datetime.datetime.today()     # Pega a hora e data exata do computador
+
+    alvo = agora.strftime("%y/%m/%d %H:%M:%S")  # O alvo recebe o horario de agora formatado (ano/mes/dia hr:min:sec)
+
+    meta = datetime.datetime(2021, 12, 16, 9, 57, 20)    # Coloque a Data e o horario que deseja
+
+    print(f'{alvo} / {meta}')           # Mostre na tela o dia/horario de agora e a Meta que foi designada
+
+    time.sleep(0.9)
+
+    if alvo == meta.strftime("%y/%m/%d %H:%M:%S"):      # Se a data/horario foi igual a Meta então:
+        print('-='*30)
+        print("Hoje é: " + semana[meta.weekday()], alvo)       # Mostre o data de hoje e qual dia da semana + horario
+        print('DEU CERTO!')
+        print('-='*30)
+        break          # Pare por aqui
+
+##################################################################################
